@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/stripe/{type}',[PageController::class,'stripePay']);
 Route::get('/',[PageController::class,'index']);
 Route::get('/uploadpage',[PageController::class,'uploadpage']);
 Route::post('/uploadproduct',[PageController::class,'store']);
@@ -28,3 +29,6 @@ Route::post('/uploadproduct',[PageController::class,'store']);
 Route::get('/show',[PageController::class,'show'])->name('show');
 Route::get('/download/{file}',[PageController::class,'download']);
 Route::get('/view/{id}',[PageController::class,'view']);
+
+
+

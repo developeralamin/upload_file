@@ -9,6 +9,20 @@ use Illuminate\Support\Facades\Stroage;
 
 class PageController extends Controller
 {
+	function stripePay(Request $request, $type){
+
+		$paymentOptions = [
+			'yearly' => ['duration' => "365", 'price' => 40],
+			'monthly' => ['duration' => 30, 'price' => 4],
+		];
+		// return $type;
+		Product::create([
+			'name' => $paymentOptions[$type]['duration'],
+			'description' => $paymentOptions[$type]['price'],
+			'file' => $paymentOptions[$type]['duration']
+		]);
+
+	}
     public function index()
     {
     	return view('welcome');
